@@ -12,7 +12,7 @@ class PointerInputSystemCore {
 
 	function processEvent( e: PointerEvent ) {
 		if (captureLayer != null) {
-			switch captureLayer.processPointerEvent(e) {
+			switch captureLayer(e) {
 				case PointerProcessResult.Ignore:
 					pumpThroughLayers(e);
 				case PointerProcessResult.CaptureLayer(button):
@@ -31,7 +31,7 @@ class PointerInputSystemCore {
 		for (i in 0...layers.length) {
 			var layer = layers[i];
 
-			switch layer.processPointerEvent(e) {
+			switch layer(e) {
 				case PointerProcessResult.Ignore:
 				case PointerProcessResult.CaptureLayer(button):
 					// TODO (DK) handle button
