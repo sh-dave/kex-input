@@ -28,8 +28,10 @@ class PointerInputSystemCore {
 	}
 
 	function pumpThroughLayers( e: PointerEvent ) {
-		for (i in 0...layers.length) {
-			var layer = layers[i];
+		var tmp = layers.copy();
+
+		for (i in 0...tmp.length) {
+			var layer = tmp[i];
 
 			switch layer(e) {
 				case PointerProcessResult.Ignore:
