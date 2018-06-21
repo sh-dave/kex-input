@@ -1,4 +1,5 @@
 {
     "name": "kex-input",
-    "license": "zlib"
+    "license": "zlib",
+    "classPath": "src"
 }
