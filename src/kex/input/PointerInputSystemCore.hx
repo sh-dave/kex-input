@@ -38,13 +38,13 @@ class PointerInputSystemCore {
 				case PointerProcessResult.CaptureLayer(button):
 					// TODO (DK) handle button
 					captureLayer = layer;
-					break; // the loop
+					return;
 				case PointerProcessResult.ReleaseLayer(button):
 					// TODO (DK) handle button
 					// TODO (DK) assert as this is basically invalid without a capured layer?
-					break; // the loop
+					return;
 				case PointerProcessResult.SwallowEvent:
-					break; // the loop
+					return;
 			}
 		}
 	}
