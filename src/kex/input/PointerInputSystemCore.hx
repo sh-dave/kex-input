@@ -4,11 +4,13 @@ class PointerInputSystemCore {
 	var layers: Array<PointerInputLayer> = [];
 	var captureLayer: PointerInputLayer = null; // TODO (DK) capture layer for every button?
 
-	public function addTopLayer( layer: PointerInputLayer )
+	public function addTopLayer( layer: PointerInputLayer ) : Void -> Void {
 		layers.unshift(layer);
 
-	public function removeLayer( layer: PointerInputLayer )
-		layers.remove(layer);
+		return function() {
+			layers.remove(layer);
+		}
+	}
 
 	function processEvent( e: PointerEvent ) {
 		if (captureLayer != null) {
