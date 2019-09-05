@@ -1,6 +1,5 @@
 package kex.input;
 
-import haxe.ds.Option;
 import kha.input.Keyboard;
 import kha.input.Mouse;
 
