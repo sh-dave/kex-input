@@ -25,11 +25,18 @@ class InputSystemCore {
 		}
 	}
 
-	function pumpMouseEvent( e: MouseEvent ) {
-		var tmp = layers.copy();
+	var _tmpmouse = [];
 
-		for (i in 0...tmp.length) {
-			var layer = tmp[i];
+	function pumpMouseEvent( e: MouseEvent ) {
+		// var tmp = layers.copy();
+		final l = layers.length;
+
+		for (i in 0...l) {
+			_tmpmouse[i] = layers[i];
+		}
+
+		for (i in 0...l) {
+			var layer = _tmpmouse[i];
 
 			if (layer.mouse != null) {
 				switch layer.mouse(e) {
@@ -61,11 +68,17 @@ class InputSystemCore {
 		}
 	}
 
-	function pumpKeyEvent( e: KeyEvent ) {
-		var tmp = layers.copy();
+	final _tmpkeys = [];
 
-		for (i in 0...tmp.length) {
-			var layer = tmp[i];
+	function pumpKeyEvent( e: KeyEvent ) {
+		final l = layers.length;
+
+		for (i in 0...l) {
+			_tmpkeys[i] = layers[i];
+		}
+
+		for (i in 0...l) {
+			var layer = _tmpkeys[i];
 
 			if (layer.keys != null) {
 				switch layer.keys(e) {
