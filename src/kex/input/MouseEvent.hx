@@ -8,6 +8,8 @@ class MouseEvent {
 	public var y: Int;
 	public var dx: Int;
 	public var dy: Int;
+	public var lastX: Int;
+	public var lastY: Int;
 	public var wheelDelta: Int;
 	public var window: Int;
 }

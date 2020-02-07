@@ -11,7 +11,7 @@ typedef InputSystemOpts = {
 
 class InputSystem extends InputSystemCore {
 	var me: MouseEvent = {
-		x: 0, y: 0, dx: 0, dy: 0,
+		x: 0, y: 0, dx: 0, dy: 0, lastX: 0, lastY: 0,
 		button: 0, wheelDelta: 0,
 		type: Leave,
 		window: 0,
@@ -58,6 +58,8 @@ class InputSystem extends InputSystemCore {
 	function mouseDownHandler( b: Int, x: Int, y: Int, window: Int ) {
 		me.type = Down;
 		me.button = b;
+		me.lastX = me.x;
+		me.lastY = me.y;
 		me.x = x;
 		me.y = y;
 		me.window = window;
@@ -67,6 +69,8 @@ class InputSystem extends InputSystemCore {
 	function mouseUpHandler( b: Int, x: Int, y: Int, window: Int ) {
 		me.type = Up;
 		me.button = b;
+		me.lastX = me.x;
+		me.lastY = me.y;
 		me.x = x;
 		me.y = y;
 		me.window = window;
@@ -75,6 +79,8 @@ class InputSystem extends InputSystemCore {
 
 	function mouseMoveHandler( x: Int, y: Int, dx: Int, dy: Int, window: Int ) {
 		me.type = Move;
+		me.lastX = me.x;
+		me.lastY = me.y;
 		me.x = x;
 		me.y = y;
 		me.dx = dx;
