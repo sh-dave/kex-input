@@ -4,8 +4,13 @@ class InputSystemCore {
 	var layers: Array<InputLayer> = [];
 	var captureLayer: InputLayer = null;
 
-	public function addTopLayer( layer: InputLayer )
+	public function addTopLayer( layer: InputLayer ) : Void -> Void {
 		layers.unshift(layer);
+
+		return function() {
+			layers.remove(layer);
+		}
+	}
 
 	public function removeLayer( layer: InputLayer )
 		layers.remove(layer);
